@@ -1,5 +1,7 @@
 package MyList;
 
+import java.lang.System;
+
 class MyLinkedList {
 
     // data
@@ -80,6 +82,46 @@ class LinkedListUse {
         System.out.println("Get an invalid element");
         mthTolast  = mthToLastElement(head,10);
         printList(mthTolast);
+
+        // Create lists for reversal
+        int[] num = {};
+        MyLinkedList head = createSampleList(num);
+        System.out.println("Original List: ");
+        printList(head);
+        System.out.println("Reverse List: ");
+        printList(reverseList(head));
+
+        // Create lists for reversal
+        int[] num = {1};
+        MyLinkedList head = createSampleList(num);
+        System.out.println("Original List: ");
+        printList(head);
+        System.out.println("Reverse List: ");
+        printList(reverseList(head));
+
+        // Create lists for reversal
+        int[] num = {1,2};
+        MyLinkedList head = createSampleList(num);
+        System.out.println("Original List: ");
+        printList(head);
+        System.out.println("Reverse List: ");
+        printList(reverseList(head));
+
+        // Create lists for reversal
+        int[] num = {1,2,3};
+        MyLinkedList head = createSampleList(num);
+        System.out.println("Original List: ");
+        printList(head);
+        System.out.println("Reverse List: ");
+        printList(reverseList(head));
+
+        // Create lists for reversal
+        int[] num = {1,2,3,4,5,6};
+        MyLinkedList head = createSampleList(num);
+        System.out.println("Original List: ");
+        printList(head);
+        System.out.println("Reverse List: ");
+        printList(reverseList(head));
 
         return;
     
@@ -213,6 +255,29 @@ class LinkedListUse {
 
         return head;
 
+    }
+
+
+    public static MyLinkedList reverseList(MyLinkedList head) {
+
+        if (head == null) {
+            return head;
+        }
+
+        MyLinkedList current = head;
+        MyLinkedList next = head.next;
+        current.next = null;
+
+        MyLinkedList temp = head.next;
+        while (next != null) {
+            temp = next.next;
+            next.next = current;
+            current = next;
+            next = temp;
+        }
+
+        head = next;
+        return head;
     }
 
 
