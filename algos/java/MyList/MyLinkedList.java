@@ -84,40 +84,40 @@ class LinkedListUse {
         printList(mthTolast);
 
         // Create lists for reversal
-        int[] num = {};
-        MyLinkedList head = createSampleList(num);
+        num = new int[0];
+        head = createSampleList(num);
         System.out.println("Original List: ");
         printList(head);
         System.out.println("Reverse List: ");
         printList(reverseList(head));
 
         // Create lists for reversal
-        int[] num = {1};
-        MyLinkedList head = createSampleList(num);
+        num = new int[]{1};
+        head = createSampleList(num);
         System.out.println("Original List: ");
         printList(head);
         System.out.println("Reverse List: ");
         printList(reverseList(head));
 
         // Create lists for reversal
-        int[] num = {1,2};
-        MyLinkedList head = createSampleList(num);
+        num = new int[]{1,2};
+        head = createSampleList(num);
         System.out.println("Original List: ");
         printList(head);
         System.out.println("Reverse List: ");
         printList(reverseList(head));
 
         // Create lists for reversal
-        int[] num = {1,2,3};
-        MyLinkedList head = createSampleList(num);
+        num = new int[]{1,2,3};
+        head = createSampleList(num);
         System.out.println("Original List: ");
         printList(head);
         System.out.println("Reverse List: ");
         printList(reverseList(head));
 
         // Create lists for reversal
-        int[] num = {1,2,3,4,5,6};
-        MyLinkedList head = createSampleList(num);
+        num = new int[]{1,2,3,4,5,6};
+        head = createSampleList(num);
         System.out.println("Original List: ");
         printList(head);
         System.out.println("Reverse List: ");
@@ -266,9 +266,10 @@ class LinkedListUse {
 
         MyLinkedList current = head;
         MyLinkedList next = head.next;
+        MyLinkedList temp = head.next;
+
         current.next = null;
 
-        MyLinkedList temp = head.next;
         while (next != null) {
             temp = next.next;
             next.next = current;
@@ -276,7 +277,7 @@ class LinkedListUse {
             next = temp;
         }
 
-        head = next;
+        head = current;
         return head;
     }
 
