@@ -20,6 +20,7 @@ CT CUT
 print checkSingleChange("cut", "cuttt") ? "true" : " false";
 
 
+
 function checkSingleChange($s1, $s2) {
 
     // Check lenght
@@ -92,6 +93,58 @@ function checkSingleChange($s1, $s2) {
     } else {
         return false;
     }
+
+
+}
+
+function checkSingleChangeCombined($s1, $s2) {
+
+    // Check lenght
+    $l1 = strlen($s1);
+    $l2 = strlen($s2);
+    if(abs($l1-$l2) >1 ) {
+        return false;
+    }
+
+    $i=0;
+    $j=0;
+
+    // Same lenght c c
+    $oneChange = false;
+    while($i <= $l1-1 || $j <= $l2-1) {
+        if (substr($s1, $i,1) != substr($s2, $j, 1)) {
+            if (!$oneChange) {
+
+                if ($l1 == $l2) {
+                    $i++;
+                    $j++;
+                } else if($l1 < $l2) {
+                    $i++;
+                } else {
+                    $j++;
+                }
+                $oneChange = true;
+            } else {
+                return false;
+            }
+        } else {
+
+            $i++;
+            $j++;
+        }
+
+    }
+
+
+
+
+
+    if (($i==$l1-1)|| ($j==$l2-1) && $oneChange) {
+        return true;
+    }
+
+    return $oneChange;
+
 
 
 }
